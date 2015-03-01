@@ -21,11 +21,11 @@ get '/' do
 end
 
 get '/logs' do
-  content_type = "text/plain"
   logs = Log.all(:order => :userid.asc)
   logs.each do |l|
     puts l.userid
   end
+  return 1
 end
 
 post '/logs' do
