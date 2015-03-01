@@ -23,7 +23,7 @@ end
 get '/logs' do
   logs = Log.all(:order => :userid.asc)
   logs.each do |l|
-    puts l.userid
+    l.to_s
   end
   return 1
 end
