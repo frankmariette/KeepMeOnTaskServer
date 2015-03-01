@@ -29,8 +29,8 @@ get '/logs' do
 end
 
 post '/logs' do
-  body = request.body.rewind
-  data = JSON.parse request.body.read
+
+  pp params
 
   log = Log.new(
     userid: data['userid'],
