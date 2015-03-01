@@ -31,12 +31,11 @@ end
 post '/logs' do
 
   content_type :json
-  puts "params after post params method = #{params}"
 
-  # log = Log.new(
-  #   userid: data['userid'],
-  #   site_visited: URI.parse(data['site_visited']),
-  #   redirected_to: URI.parse(data['redirected_to'])
-  # );
-  # log.save(:safe => true)
+  log = Log.new(
+    userid: params[:userid],
+    site_visited: params[:site_visited],
+    redirected_to: params['redirected_to']
+  );
+  log.save(:safe => true)
 end
