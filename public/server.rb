@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'sinatra'
 require 'mongo_mapper'
 
@@ -20,7 +21,11 @@ get '/' do
 end
 
 get '/logs' do
-  Log.all
+  content_type = "text/plain"
+  logs = Log.all(:order => :userid.asc)
+  logs.each do |l|
+    puts l.userid
+  end
 end
 
 post '/logs' do
