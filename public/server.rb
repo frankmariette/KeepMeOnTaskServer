@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'mongo_mapper'
 require 'pp'
+require 'json'
 
 class Log
   include MongoMapper::Document
@@ -23,13 +24,7 @@ end
 
 get '/logs' do
   logs = Log.all(:order => :userid.asc)
-  logs.each do |l|
-    pp "userid => "+l.userid
-    pp "site_visited => " + l.site_visited
-    pp "redirected_to => " + l.redirected_to
-    pp "created_at =>" + l.created_at.inspect
-  end
-  return 200
+  logs.to_json
 end
 
 post '/logs' do
