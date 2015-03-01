@@ -11,6 +11,9 @@ class Log
 
 end
 
+get '/' do
+  "Hello there from Sinatra"
+end
 
 post '/logs' do
   body = request.body.rewind
