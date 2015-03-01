@@ -31,7 +31,7 @@ end
 post '/logs' do
 
   content_type :json
-  puts "params after post params method = #{params.inspect}"
+  puts "params after post params method = #{params}"
 
   # log = Log.new(
   #   userid: data['userid'],
