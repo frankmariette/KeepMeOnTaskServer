@@ -23,7 +23,7 @@ end
 get '/logs' do
   logs = Log.all(:order => :userid.asc)
   logs.each do |l|
-    l.inspect
+    l.instance_variables
   end
   return 200
 end
