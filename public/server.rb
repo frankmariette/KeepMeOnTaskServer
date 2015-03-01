@@ -32,10 +32,10 @@ post '/logs' do
 
   pp params
 
-  log = Log.new(
-    userid: data['userid'],
-    site_visited: URI.parse(data['site_visited']),
-    redirected_to: URI.parse(data['redirected_to'])
-  );
-  log.save(:safe => true)
+  # log = Log.new(
+  #   userid: data['userid'],
+  #   site_visited: URI.parse(data['site_visited']),
+  #   redirected_to: URI.parse(data['redirected_to'])
+  # );
+  # log.save(:safe => true)
 end
