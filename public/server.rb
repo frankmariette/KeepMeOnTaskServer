@@ -6,7 +6,7 @@ class Log
 
   key :userid, String
   key :site_visited, String
-  key :directed_to, String
+  key :redirected_to, String
   key :timestamp, Time
 
 end
