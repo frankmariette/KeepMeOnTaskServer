@@ -23,7 +23,7 @@ end
 get '/logs' do
   logs = Log.all(:order => :userid.asc)
   logs.each do |l|
-    puts l.instance_variables
+    puts l.userid l.site_visited l.redirected_to l.created_at
   end
   return 200
 end
