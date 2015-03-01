@@ -34,8 +34,8 @@ post '/logs' do
 
   log = Log.new(
     userid: data['userid'],
-    site_visited: data['site_visited'],
-    redirected_to: data['redirected_to']
+    site_visited: URI.parse(data['site_visited']),
+    redirected_to: URI.parse(data['redirected_to'])
   );
   log.save(:safe => true)
 end
