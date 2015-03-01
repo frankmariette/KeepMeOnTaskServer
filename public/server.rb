@@ -23,9 +23,9 @@ end
 get '/logs' do
   logs = Log.all(:order => :userid.asc)
   logs.each do |l|
-    l.to_s
+    l.inspect
   end
-  return 1
+  return 200
 end
 
 post '/logs' do
