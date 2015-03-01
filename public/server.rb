@@ -7,23 +7,30 @@ class Log
   key :userid, String
   key :site_visited, String
   key :redirected_to, String
-  key :timestamp, Time
+  timestamps!
 
+end
+
+configure do
+  MongoMapper.database = 'keepmeontask'
 end
 
 get '/' do
   "Hello there from Sinatra"
 end
 
+get '/logs' do
+  Log.all
+end
+
 post '/logs' do
   body = request.body.rewind
   data = JSON.parse request.body.read
 
-  log = new Log(
+  log = Log.new(
     userid: data['userid'],
     site_visited: data['site_visited'],
-    redirected_to: data['redirected_to'],
-    timestamp: data['timestamp']
+    redirected_to: data['redirected_to']
   );
-  log.save!
+  log.save(:safe => true)
 end
