@@ -23,6 +23,7 @@ get '/' do
 end
 
 get '/logs' do
+  content_type 'application/json'
   logs = Log.all(:order => :userid.asc)
   logs.to_json
 end
